@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
-var db = require('monk')('localhost/casino');
+var db = require('monk')('process.env.CASINO');
 var players = db.get('players');
 
 
