@@ -12,28 +12,32 @@ router.get('/', function(req, res, next) {
   res.render('index', {player: player});
 });
 
-router.get('/login', function(req,res,next){
-  res.render('index')
-})
+// router.get('/login', function(req,res,next){
+//   res.render('index')
+// })
 
 ////LOGIN POST
 router.post('/login', function(req,res,next){
   var playerName = req.body.user_name.toUpperCase();
   var playerPw = req.body.password;
-    if(playerPw== null){
+  players.findOne({name: playerName}, function(err,data){
+    if (data == null){
       res.render('index', {error: "Invalid Credentials", errMsg: 'Please Try Again'})
     }
-    players.findOne({name: playerName}, function(err,data){
+    else {
       bcrypt.compare(playerPw.toUpperCase(), data.password , function(err, answer) {
         if (answer === true){
           res.cookie('player', playerName);
           res.redirect('/roulette/table');
-        } else {
+        }
+        else {
           res.render('index', {error: "Invalid Credentials", errMsg: 'Please Try Again'})
-      }
-    });
+        }
+      });
+    }
   });
 });
+
 
 
 
