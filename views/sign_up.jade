@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/index.css')
+block content
+    
+    
+  if error
+    p #{error}
+  fieldset
+    form(action='/sign_up' method='post')
+      label(for='login') Username
+      p
+      input(type='text' name='user_name' id='login')
+      p   
+      label(for='password') Password
+      p 
+      input(type='text' name='password')
+      p
+      label(for='passconf') Password Confirmation
+      p 
+      input(type='text' name='passconf')
+      p
+      input(type='submit' value='Sign Up')
+
+      

@@ -1,0 +1,70 @@
+body{
+  background-image: url(http://www.overtimepaylaws.org/wp-content/uploads/2014/03/Las-Vegas-Casino-Overtime-Pay-Lawsuits.jpg);
+  background-size: cover;
+  color:white;
+  margin-top: -10px;
+};
+
+.button {
+  height: 25px;
+  width:100px;
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+}
+
+fieldset{
+  height: 300px;
+  margin-right: 25em;
+  margin-left: 25em;
+  margin-top: 10em;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  border-color: #00B7FF;
+
+}
+img{
+  border-radius: 10px;
+  margin-left: 16em;
+}
+
+label{
+  color: #00B7FF;
+  font-size: 20px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+form{
+  margin-top: 40px;
+}
+
+
+
+h1{
+  text-align: center;
+}
+
+#login{
+  width: 150px;
+  text-align: center;
+
+}
+
+#password{
+  width:150px;
+  text-align: center;
+}
+
+#button{
+  height:75px;
+  width: 75px;
+  border-radius: 100%;
+  border: 5px solid #00B7FF;
+  background-color: transparent;
+  color:white;
+  font-size: 15px;
+}

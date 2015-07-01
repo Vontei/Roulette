@@ -1,0 +1,249 @@
+body{
+  margin-top: 50px;
+  margin-left: -2px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-size:cover;
+  /*background-image: url(http://img.hdwallpaperpc.com/cover/74/CityScape_Las_Vegas_Buildings_Night_Lights_Fisheye_73250.jpg);*/
+  background-image: url(https://www.i5design.com/wp-content/uploads/2013/08/Isleta-Casino_Interior-Casino-Design_Casino-Lighting_Casino-Development-1800x1200.jpg);
+  /*background-image: url(https://www.ritani.com/wp-content/uploads/2014/05/Loose-diamonds.jpg?47bee6);*/
+  margin-bottom: -2px;
+);
+
+}
+
+
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+
+}
+
+
+.navleft li{
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  float:left;
+}
+
+
+.navright li{
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  float:right;
+}
+
+.navright{
+  margin-right: 50px;
+}
+
+.navbar{
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  border: 1px solid black;
+  /*background: -webkit-linear-gradient(top, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);*/
+}
+
+.header{
+  margin: 0 auto;
+}
+
+#wheel-nav li{
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#wheel-nav {
+  margin-top: -105px;
+  position: fixed;
+  bottom: 0;
+  width: 102%;
+  /*border: 1px solid white;*/
+  /*background: -webkit-linear-gradient(top, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);*/
+  display: inline-block;
+  color: white;
+  /*margin-bottom: 50px;*/
+  background: -webkit-linear-gradient(top, rgba(66,66,66,1) 0%, rgba(31,31,31,1) 0%, rgba(74,74,74,1) 0%, rgba(31,31,31,1) 0%, rgba(66,66,66,1) 0%, rgba(0,0,0,1) 0%, rgba(13,13,13,1) 1%, rgba(51,51,51,1) 1%, rgba(56,56,56,1) 5%, rgba(20,20,20,1) 18%, rgba(13,13,13,1) 100%);
+}
+
+#wheel-nav #right{
+  float: right;
+  display: inline-block;
+  margin-right: 50px;
+}
+#wheel-nav  #left{
+  flaot: left;
+  display: inline-block;
+
+}
+
+#container{
+  height: 600px;
+  padding-top: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 25px;
+
+}
+
+
+#bank{
+  border: 3px solid white;
+  height: 200px;
+  width: 75px;
+  float: right;
+  margin-right: 5em;
+  margin-top: 5em;
+  width:47%;
+}
+
+#spin{
+  height:75px;
+  width: 75px;
+  border-radius: 100%;
+  border: 5px solid #00B7FF;
+  background-color: transparent;
+  color:white;
+  font-size: 15px;
+}
+
+#spin:hover{
+  border-color: red;
+  color:#00B7FF;
+}
+
+
+#bet{
+  width:200px;
+}
+
+#wheelcanvas{
+  float:left;
+  margin-left: 5em;
+}
+
+#balance2{
+  margin-left: 150px;
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+#balance{
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+/*The table board*/
+
+td {
+  border: 2px solid black;
+  width: 50px;
+  text-align: center;
+  border-color: #d6d6d6;
+  border-radius: 100%
+}
+
+
+td:hover{
+  border-color: #00B7FF;
+}
+
+
+.thirds{
+  width: 299px;
+  height: 25px;
+}
+
+.sixths{
+  width: 150px;
+  height: 25px;
+}
+
+#empty {
+  visibility: hidden;
+  width: 75px;
+
+}
+#sixths{
+  padding-left: 59px;
+}
+
+#thirds{
+  padding-left: 59px;
+  height: 15px;
+}
+
+#board{
+  margin-right: 5em;
+  background-image: url(http://www.thenewburymediagroup.com/wp-content/uploads/2013/05/poker-table-felt.jpg);
+  float:right;
+  width: 48%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 10px solid black;
+  border-radius: 20px;
+}
+
+#logout{
+  background-color: transparent;
+  border: none;
+  width: 100px;
+  color: #00B7FF;
+  font-size: 15px;
+}
+
+
+#logout:hover{
+  font-size: 16px;
+}
+
+#display{
+  margin-left: 16em;
+  margin-right: 2em;
+  margin-bottom: 200px;
+}
+
+#total{
+  float:left;
+  text-align: center;
+}
+
+#winnings{
+  float: right;
+  margin-right: 25em;
+  display: inline-block;
+}
+
+#winnings li{
+  display: inline-block;
+  font-size: 20px;
+  padding-left: 20px;
+  font-family: 'Codystar', cursive;
+  color: red;
+  font-weight: bold;
+}
+
+
+
+table{
+  color:white;
+}
+
+#answer{
+  color:white;
+}
+
+#totalWon{
+  color:white;
+}
+
+#selected{
+  color:white;
+}

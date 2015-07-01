@@ -1,0 +1,103 @@
+extends ../layout
+
+block content
+    
+  div(id='wheel-nav')
+    div(id='left')
+      ul
+        li |
+        li Good Luck #{user}
+        li |
+        li 
+          a(href="/") Home
+        li |
+        li 
+          a(href='/roulette/account') Account
+        li(id='balance2') Balance:
+        li(id='balance') 
+    div(id='right')
+      ul 
+        li
+          form(action='/signout' method='post')
+            input(type='submit' value='Sign Out' name='logout' id='logout')
+        
+  
+  div(id='container');  
+    canvas(id='wheelcanvas' width='500' height='800')
+    div(id='board')
+      table(id='table-numbers')
+        tbody
+          tr(class='nums')
+            td(id='empty')
+            td(id='3' style='background-color:red') 3 
+            td(id='6' style='background-color:black') 6 
+            td(id='9' style='background-color:red') 9 
+            td(id='12' style = 'background-color:red') 12 
+            td(id='15' style = 'background-color:black') 15
+            td(id='18' style = 'background-color:red') 18
+            td(id='21' style = 'background-color:red') 21
+            td(id='24' style = 'background-color:black') 24
+            td(id='27' style = 'background-color:red') 27
+            td(id='30' style = 'background-color:red') 30
+            td(id='33' style = 'background-color:black') 33 
+            td(id='35' style = 'background-color:red') 36
+            td(id='row1') 2 to 1 
+          tr(class='nums')
+            td(id='0' style="background-color:#30e708") 0
+            td(id='2' style = 'background-color:black') 2 
+            td(id='5' style = 'background-color:red') 5 
+            td(id='8' style = 'background-color:black') 8 
+            td(id='11' style = 'background-color:black') 11 
+            td(id='14' style = 'background-color:red') 14
+            td(id='17' style = 'background-color:black') 17
+            td(id='20' style = 'background-color:black') 20
+            td(id='23' style = 'background-color:red') 23
+            td(id='26' style = 'background-color:black') 26
+            td(id='29' style = 'background-color:black') 29
+            td(id='32' style = 'background-color:red') 32 
+            td(id='35' style = 'background-color:black') 35
+            td(id='row2') 2 to 1 
+          tr 
+            td(id='00' style="background-color:#30e708") 00
+            td(id='1' style = 'background-color:red') 1
+            td(id='4' style = 'background-color:black') 4 
+            td(id='7' style = 'background-color:red') 7 
+            td(id='10' style = 'background-color:black') 10 
+            td(id='13' style = 'background-color:black') 13
+            td(id='16' style = 'background-color:red') 16
+            td(id='19' style = 'background-color:red') 19
+            td(id='22' style = 'background-color:black') 22
+            td(id='25' style = 'background-color:red') 25
+            td(id='28' style = 'background-color:black') 28
+            td(id='31' style = 'background-color:black') 31 
+            td(id='34' style = 'background-color:red') 34
+            td(id='row3') 2 to 1
+        table(id='thirds')
+          tbody
+            tr.thirds
+              td.thirds(id='block1') 1st 12
+              td.thirds(id='block2') 2nd 12
+              td.thirds(id='block3') 3rd 12
+        table(id='sixths')
+          tbody
+            tr
+              td.sixths 1-18
+              td.sixths Even
+              td.sixths(id='red' style = 'background-color:red') red
+              td.sixths(id='black' style = 'background-color:black') black
+              td.sixths Odd 
+              td.sixths 19-36
+    div(id='bank')
+      div(id='display')  
+        div(id='total')
+          input(type='button' value='Spin!' onclick='spin()' id='spin')
+          div
+            input(type='text' placeholder='Place your bet' name='bet' id='bet')
+
+        div(id='winnings')
+          ul  
+            li(id='answer')
+            li(id='totalWon')
+            li(id='selected')
+          
+  script(src='/javascripts/table.js' type='text/javascript')

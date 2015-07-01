@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/index.css')
+  body
+
+  div.index-header
+  //- img(src='../images/nickyD.png' width='900')
+  
+  if error
+    p #{error}
+  fieldset
+    form(action='/login' method='post')
+      label(for='login') Username 
+      p
+      input(type='text' name='user_name' id='login')
+      p   
+      label(for='password') Password
+      p 
+      input(type='text' name='password' id='password')
+      p
+      input(type='submit' value='Login' id='button')
+      p
+      div.index-nav
+        a(href='/sign_up') Sign Up
