@@ -93,11 +93,11 @@ a {
 
 
 #bank{
-  border: 3px solid white;
+    /*border: 2px solid black;*/
   height: 200px;
   width: 75px;
   float: right;
-  margin-right: 5em;
+  margin-right: 6em;
   margin-top: 5em;
   width:47%;
 }
@@ -138,6 +138,7 @@ a {
   color: white;
   font-size: 20px;
   font-family: sans-serif;
+  margin: 0;
 }
 
 /*The table board*/
@@ -225,7 +226,7 @@ td:hover{
   display: inline-block;
   font-size: 20px;
   padding-left: 20px;
-  font-family: 'Codystar', cursive;
+  font-family: sans-serif;
   color: red;
   font-weight: bold;
 }

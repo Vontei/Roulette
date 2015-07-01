@@ -111,7 +111,7 @@ var selection = '';
 var tableOut = document.getElementById('board');
 var winnings = '';
 var balance = document.getElementById('balance');
-var account = balance.value || 100
+var account = balance.value || 1000
 
 balance.innerHTML =account;
 var answer = document.getElementById('answer');
@@ -138,7 +138,7 @@ tableOut.addEventListener('click', function (e) {
     var text = numbers[index]
     ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
 
-
+    var firstBlock = ''
     var color='';
     var pickNum='';
       switch(text){
@@ -163,7 +163,7 @@ tableOut.addEventListener('click', function (e) {
         case '34':
           var color = 'red';
           var pickNum = text;
-          break
+          break;
         case '6':
         case '15':
         case '24':
@@ -184,45 +184,98 @@ tableOut.addEventListener('click', function (e) {
         case '31':
           var color = 'black';
           var pickNum = text;
-
           break
         case '0':
         case '00':
           var color = 'green';
-          break
+          break;
     }
 
     if(color === 'red' && selection==='red'){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!'
       account += parseInt(bet);
-      balance.innerHTML= account
+      balance.innerHTML= '$' + account
     }
     if(color === 'black' && selection==='red'){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost'
       account-=bet;
-      balance.innerHTML= account
+      balance.innerHTML= '$' + account
     }
 
     if(color == 'black' && selection=='black'){
     var bet = document.getElementById('bet').value;
       answer.innerHTML='You Won!'
       account += parseInt(bet);
-      balance.innerHTML= account
+      balance.innerHTML= '$' + account
     }
     if(color == 'red' && selection=='black'){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost'
       account-=bet;
-      balance.innerHTML= account
+      balance.innerHTML= '$' + account
     }
 
     if(color =='green' && (selection== 'red' || selection== 'black')){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'Green: You Lost'
       account-=bet;
-      balance.innerHTML= account
+      balance.innerHTML= '$' + account
+    }
+
+
+    if(selection == 'block1' && (parseInt(text)<13 && parseInt(text)>0)){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won!';
+      var win = bet*2;
+      account+=win;
+      balance.innerHTML= '$' + account
+    }
+
+    if(selection == 'block2' && (parseInt(text)>=13 && parseInt(text)<25)){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won!';
+      var win = bet*2;
+      account+=win;
+      balance.innerHTML= '$' + account
+    }
+
+    if(selection == 'block3' && (parseInt(text)>=26 && parseInt(text)<37)){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won!';
+      var win = bet*2;
+      account+=win;
+      balance.innerHTML= '$' + account
+    }
+
+    if(selection == 'even' && (parseInt(text)%2==0 && (text!= ('0' || '00')))){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won!';
+      account+=parseInt(bet);
+      balance.innerHTML= '$' + account
+    }
+
+    if(selection == 'odd' && (parseInt(text)%2 != 0)){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won!';
+      account+=parseInt(bet);
+      balance.innerHTML= '$' + account
+    }
+
+
+    if(selection == 'firstHalf' && (parseInt(text)<19)){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won 1st!';
+      account+=parseInt(bet);
+      balance.innerHTML= '$' + account
+    }
+
+    if(selection == 'secondHalf' && (parseInt(text)>18)){
+      var bet = document.getElementById('bet').value;
+      answer.innerHTML= 'You Won! 2nd';
+      account+=parseInt(bet);
+      balance.innerHTML= '$' + account
     }
 
     if(selection == text){
@@ -230,11 +283,8 @@ tableOut.addEventListener('click', function (e) {
       answer.innerHTML='Big win!'
       var winnings = bet*35;
       account+=winnings;
-      balance.innerHTML= account;
-
+      balance.innerHTML= '$' + account
     }
-
-
 
 
     ctx.restore();
