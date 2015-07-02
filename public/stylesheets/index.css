@@ -3,6 +3,7 @@ body{
   background-size: cover;
   color:white;
   margin-top: -10px;
+  background-repeat: no-repeat;
 };
 
 .button {
@@ -14,10 +15,10 @@ body{
 }
 
 fieldset{
-  height: 300px;
+  height: 320px;
   margin-right: 25em;
   margin-left: 25em;
-  margin-top: 10em;
+  margin-top: 0em;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 20px;
@@ -38,14 +39,33 @@ a {
   color: #00B7FF;
 }
 
-form{
-  margin-top: 40px;
+
+#copyright{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin-left: 46%;
+
 }
 
+form{
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
 
+#error{
+  font-size: 15px;
+  color: red;
+}
 
 h1{
+  font-family: 'Leckerli One', cursive;
   text-align: center;
+  font-size: 150px;
+  opacity: .9;
+  margin: 0;
+  padding-top: 100px;
+  padding-bottom: 25px;
 }
 
 #login{
@@ -59,6 +79,12 @@ h1{
   text-align: center;
 }
 
+#passconf{
+  text-align: center;
+  width:150px;
+
+}
+
 #button{
   height:75px;
   width: 75px;
@@ -67,4 +93,9 @@ h1{
   background-color: transparent;
   color:white;
   font-size: 15px;
+}
+
+
+#fs2{
+  padding-bottom: 40px;
 }

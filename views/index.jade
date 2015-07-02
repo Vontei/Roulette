@@ -2,15 +2,14 @@ doctype html
 html
   head
     title= title
+    link(href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='/stylesheets/index.css')
   body
 
-  div.index-header
-  //- img(src='../images/nickyD.png' width='900')
-  
-  if error
-    p #{error}
+  h1 Roulette Js
   fieldset
+    if error
+      p(id='error') #{error}
     form(action='/login' method='post')
       label(for='login') Username 
       p
@@ -24,3 +23,5 @@ html
       p
       div.index-nav
         a(href='/sign_up') Sign Up
+
+  p(id='copyright')&copy; 2015 Vontei
