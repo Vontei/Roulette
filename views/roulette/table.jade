@@ -12,7 +12,7 @@ block content
         li 
           a(href='/roulette/account') Account
         li(id='balance2') Balance:
-        li(id='balance') 
+        li(id='balance' name='balance') #{account}
     div(id='right')
       ul 
         li
@@ -94,7 +94,7 @@ block content
         div(id='winnings')
           ul  
             li(id='answer')
-            li(id='totalWon')
-            li(id='selected')
+            //- li(id='totalWon')
+            //- li(id='selected')
           
   script(src='/javascripts/table.js' type='text/javascript')

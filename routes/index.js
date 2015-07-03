@@ -6,17 +6,12 @@ var players = db.get('players');
 
 
 
-////GET HOME PAGE
 router.get('/', function(req, res, next) {
-  var player = req.cookies.user || ""
+  var player = req.cookies.user || "";
   res.render('index', {player: player});
 });
 
-// router.get('/login', function(req,res,next){
-//   res.render('index')
-// })
 
-////LOGIN POST
 router.post('/login', function(req,res,next){
   var playerName = req.body.user_name.toUpperCase();
   var playerPw = req.body.password;
@@ -39,16 +34,11 @@ router.post('/login', function(req,res,next){
 });
 
 
-
-
-////SIGN UP PAGE
 router.get('/sign_up', function(req,res,next){
   res.render('sign_up');
-})
+});
 
 
-
-///SIGN UP
 router.post('/sign_up', function(req,res,next){
   var password = req.body.password;
   var confirmation = req.body.passconf;
@@ -86,31 +76,30 @@ router.post('/sign_up', function(req,res,next){
 });
 
 
-////GET THE ROULETTE PAGE
 router.get('/roulette/table',function(req,res,next){
   var user = req.cookies.player;
-  console.log(user);
-  res.render('roulette/table', {user: user})
-})
-
-
-
-
-
+  players.findOne({name: user}, function(err,data){
+  res.render('roulette/table', {user: user, account: data.balance})
+});
+});
 
 
 router.get('/roulette/account', function(req,res,next){
   var user = req.cookies.player
   res.render('roulette/account', {user: user})
-})
-
-router.post('/signout', function(req,res,next){
-  res.clearCookie('player');
-res.redirect('/')
 });
 
 
+router.post('/signout', function(req,res,next){
+  res.clearCookie('player');
+  res.redirect('/')
+});
 
+
+router.post('/casino/players', function(req,res,next){
+  players.update({name: req.cookies.player},{$set: {balance: req.body.money}})
+  res.send(null)
+})
 
 
 
