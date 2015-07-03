@@ -5,7 +5,6 @@ var db = require('monk')(process.env.MONGOLAB_URI);
 var players = db.get('players');
 
 
-
 router.get('/', function(req, res, next) {
   var player = req.cookies.user || "";
   res.render('index', {player: player});
@@ -70,7 +69,7 @@ router.post('/sign_up', function(req,res,next){
     }
     if(password===confirmation){
       var hash = bcrypt.hashSync(password.toUpperCase(), 8);
-      players.insert({name: req.body.user_name.toUpperCase(), password: hash})
+      players.insert({name: req.body.user_name.toUpperCase(), password: hash, balance: 1000})
       res.redirect('/')
     }
 });
@@ -96,11 +95,17 @@ router.post('/signout', function(req,res,next){
 });
 
 
+router.get('/casino/players', function(req,res,next){
+  players.findOne({name: req.cookies.player}, function(err,data){
+    console.log(data)
+    res.send(data.balance)
+  })
+})
+
 router.post('/casino/players', function(req,res,next){
   players.update({name: req.cookies.player},{$set: {balance: req.body.money}})
   res.send(null)
 })
-
 
 
 

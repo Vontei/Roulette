@@ -18,10 +18,6 @@
   var ctx;
 
 
-
-
-
-
   function draw() {
     drawRouletteWheel();
   }
@@ -112,13 +108,31 @@ var selection = '';
 var tableOut = document.getElementById('board');
 var winnings = '';
 var balance = document.getElementById('balance');
-var account = balance.value || 1000
+
+
+
+startAccount = new XMLHttpRequest();
+startAccount.open('get', '/casino/players', true);
+startAccount.addEventListener('load', function(){
+  var balance = document.getElementById('balance');
+  var response = startAccount.response;
+  console.log(response)
+  if(response.balance == null){
+    balance.innerHTML == 1000;
+  }
+  else{balance.innerHTML=response.balance}
+})
+startAccount.send(null);
+
+
+
+var account = balance.innerHTML
 var row1Array = ['3','6','9','12','15','18','21','24','27','30','33','36']
 var select = document.getElementById('selected')
 tableOut.addEventListener('click', function (e) {
   var y = e.target.id;
   selection = y;
-  select.innerHTML = selection;
+  // select.innerHTML = selection;
 })
 
 
@@ -190,26 +204,26 @@ tableOut.addEventListener('click', function (e) {
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!';
       account += parseInt(bet);
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
     if(color === 'black' && selection==='red'){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost'
       account-=bet;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
     if(color == 'black' && selection=='black'){
     var bet = document.getElementById('bet').value;
       answer.innerHTML='You Won!'
       account += parseInt(bet);
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
     if(color == 'red' && selection=='black'){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost'
       account-=bet;
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
 
@@ -217,16 +231,16 @@ tableOut.addEventListener('click', function (e) {
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'Green: You Lost'
       account-=bet;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
 
     if(selection == 'block1' && (parseInt(text)<13 && parseInt(text)>0)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!';
-      var win = bet*2;
+      var win = parseInt(bet)*2;
       account+=win;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
 
@@ -234,45 +248,45 @@ tableOut.addEventListener('click', function (e) {
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost'
       account-=bet;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
 
     if(selection == 'block2' && (parseInt(text)>=13 && parseInt(text)<25)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!';
-      var win = bet*2;
+      var win = parseInt(bet)*2;
       account+=win;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
     if(selection == 'block2' && (parseInt(text)<13 || parseInt(text)>24 || color=='green')){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost'
       account-=bet;
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
     if(selection == 'block3' && (parseInt(text)>=26 && parseInt(text)<37)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!';
-      var win = bet*2;
+      var win = parseInt(bet)*2;
       account+=win;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
     if(selection == 'block3' && (parseInt(text)<25 || color=='green')){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost';
       account-=bet;
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
     if(selection == 'even' && (parseInt(text)%2==0 && (text!= ('0' || '00')))){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!';
       account+=parseInt(bet);
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
 
@@ -280,21 +294,21 @@ tableOut.addEventListener('click', function (e) {
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost';
       account-=bet;
-      balance.innerHTML= '$' + account;
+      balance.innerHTML= account;
     }
 
     if(selection == 'odd' && (parseInt(text)%2 != 0)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won!';
       account+=parseInt(bet);
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
     if(selection == 'odd' && (parseInt(text)%2==0 && (text!= ('0' || '00')))){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost';
       account-=bet;
-      balance.innerHTML= '$' + account;
+      balance.innerHTML=  account;
     }
 
 
@@ -302,56 +316,38 @@ tableOut.addEventListener('click', function (e) {
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won 1st!';
       account+=parseInt(bet);
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
     if(selection == 'firstHalf' && (parseInt(text)>=19)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost';
       account-=bet;
-      balance.innerHTML= '$' + account;
+      balance.innerHTML=  account;
     }
 
     if(selection == 'secondHalf' && (parseInt(text)>18)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Won! 2nd';
       account+=parseInt(bet);
-      balance.innerHTML= '$' + account
+      balance.innerHTML=  account
     }
 
     if(selection == 'secondHalf' && (parseInt(text)<=18)){
       var bet = document.getElementById('bet').value;
       answer.innerHTML= 'You Lost';
       account-=bet;
-      balance.innerHTML= '$' + account;
+      balance.innerHTML=  account;
     }
 
     if(selection == text){
       var bet = document.getElementById('bet').value;
       answer.innerHTML='Big win!'
-      var winnings = bet*35;
+      var winnings = parseInt(bet)*35;
       account+=winnings;
-      balance.innerHTML= '$' + account
+      balance.innerHTML= account
     }
 
-    // for(i=0;i<row1Array.length;i++){
-    //   if(selection == 'row1' && row1Array[i] == text){
-    //     var bet = document.getElementById('bet').value;
-    //     answer.innerHTML= 'You Won!';
-    //     var win = bet*2;
-    //     account+=win;
-    //     balance.innerHTML= '$' + account
-    //   }
-    // }
-    //
-    // for(i=0;i<row1Array.length;i++){
-    //   if(selection == 'row1' && row1Array[i] != text){
-    //     var bet = document.getElementById('bet').value;
-    //     answer.innerHTML= 'You Lost';
-    //     account-=bet;
-    //     balance.innerHTML= '$' + account;
-    //   }
-    // }
 
     if(selection == 'row1'){
       switch(text) {
@@ -371,16 +367,16 @@ tableOut.addEventListener('click', function (e) {
           if(row == 'row1'){
             var bet = document.getElementById('bet').value;
             answer.innerHTML= 'You Won!';
-            var win = bet*2;
+            var win = parseInt(bet)*2;
             account+=win;
-            balance.innerHTML= '$' + account
+            balance.innerHTML= account
           }
           else
           {
             var bet = document.getElementById('bet').value;
             answer.innerHTML= 'You Lost';
             account-=bet;
-            balance.innerHTML= '$' + account;
+            balance.innerHTML=  account;
             }
         break
       }
@@ -404,16 +400,16 @@ tableOut.addEventListener('click', function (e) {
           if(row == 'row2'){
             var bet = document.getElementById('bet').value;
             answer.innerHTML= 'You Won!';
-            var win = bet*2;
+            var win = parseInt(bet)*2;
             account+=win;
-            balance.innerHTML= '$' + account
+            balance.innerHTML= account
           }
           else
           {
             var bet = document.getElementById('bet').value;
             answer.innerHTML= 'You Lost';
             account-=bet;
-            balance.innerHTML= '$' + account;
+            balance.innerHTML=  account;
             }
         break
       }
@@ -437,27 +433,18 @@ tableOut.addEventListener('click', function (e) {
         if(row == 'row3'){
           var bet = document.getElementById('bet').value;
           answer.innerHTML= 'You Won!';
-          var win = bet*2;
+          var win = parseInt(bet)*2;
           account+=win;
-          balance.innerHTML= '$' + account
+          balance.innerHTML=  account
         } else {
             var bet = document.getElementById('bet').value;
             answer.innerHTML= 'You Lost';
             account-=bet;
-            balance.innerHTML= '$' + account;
+            balance.innerHTML=account;
           }
         break
       }
     }
-
-
-
-
-
-
-
-
-
 
     var bankAccount = new XMLHttpRequest();
     bankAccount.open('post', '/casino/players', true);
@@ -466,12 +453,8 @@ tableOut.addEventListener('click', function (e) {
     var banks= {'money': bank.innerHTML};
     bankAccount.send(JSON.stringify(banks));
 
-
-
     ctx.restore();
   }
-
-
 
   function easeOut(t, b, c, d) {
     var ts = (t/=d)*t;
