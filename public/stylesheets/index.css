@@ -50,7 +50,8 @@ a {
 
 form{
   margin-top: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+  padding-bottom:
 }
 
 #error{
@@ -97,5 +98,7 @@ h1{
 
 
 #fs2{
-  padding-bottom: 40px;
+  padding-bottom: 30px;
+  height: 350px;
+
 }

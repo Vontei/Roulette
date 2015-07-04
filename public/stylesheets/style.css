@@ -237,3 +237,42 @@ table{
 #selected{
   color:white;
 }
+
+
+#accountp{
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: 'Leckerli One', cursive;
+
+}
+
+#accounth1{
+  text-align: center;
+  color: white;
+  font-size: 32px;
+}
+
+#accountBlock{
+  text-align: center;
+  margin-left: 10em;
+  margin-right: 10em;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 50px;
+  margin-bottom: 200px;
+}
+
+#betsAnd{
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: sans-serif;
+}
+
+#history{
+  font-size: 20px;
+}
+
+#history:hover{
+  font-size: 21px;
+}

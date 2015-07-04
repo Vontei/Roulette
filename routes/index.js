@@ -69,7 +69,7 @@ router.post('/sign_up', function(req,res,next){
     }
     if(password===confirmation){
       var hash = bcrypt.hashSync(password.toUpperCase(), 8);
-      players.insert({name: req.body.user_name.toUpperCase(), password: hash, balance: 1000})
+      players.insert({name: req.body.user_name.toUpperCase(), password: hash, balance: '1000'})
       res.redirect('/')
     }
 });

@@ -7,9 +7,10 @@ html
 block content
     
   h1 Sign Up  
-  if error
-    p #{error}
+
   fieldset(id='fs2')
+    if error
+      p(id='error') #{error}
     form(action='/sign_up' method='post')
       label(for='login') Username
       p

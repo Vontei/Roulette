@@ -1,5 +1,20 @@
 extends ../layout
 
 block content
-  h1 
-  p #{user}'s Account
+  div(id='accountBlock')  
+    p(id='accountp') #{user}
+    p(id='history') 
+      a(href='https://en.wikipedia.org/wiki/Roulette') History of Roulette
+    p(id='betsAnd') Bets and Payouts:
+    img(src='http://www.sincitytalk.com/wp-content/uploads/2014/02/roulette-game2.jpg')
+  
+  div(id='wheel-nav')
+    div(id='left')
+      ul
+        li #{user}
+        li |
+        li 
+          a(href="/") Home
+        li 
+          a(href='/roulette/table') Table
+        li(id='balance' name='balance') #{account}
