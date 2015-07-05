@@ -1,7 +1,8 @@
 extends ../layout
 
 block content
-    
+  embed(src="/images/LBAL.mp3" width="0" height="0" loop="true" autostart="true" hidden="true")  
+
   div(id='wheel-nav')
     div(id='left')
       ul
@@ -96,5 +97,6 @@ block content
             li(id='answer')
             //- li(id='totalWon')
             //- li(id='selected')
-          
+  embed(src="/images/ball.mp3" id='ball' width="0" height="0" loop="false" autostart="true" hidden="true")  
+
   script(src='/javascripts/table.js' type='text/javascript')
