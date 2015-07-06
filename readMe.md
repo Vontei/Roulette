@@ -9,4 +9,4 @@
 *  Vanilla Javascript
 
 
-This is a personal project written over the course of week 6 at Galvanize.
+This roulette game is a personal project written over the course of week 6 at Galvanize. 
