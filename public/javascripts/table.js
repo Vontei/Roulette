@@ -41,6 +41,8 @@
   }
 
 
+
+
   function draw() {
     drawRouletteWheel();
   }
@@ -143,6 +145,7 @@ var select = document.getElementById('selected')
   tableOut.addEventListener('click', function (e) {
     var y = e.target.id;
     selection = y;
+    toggleBorder(e.target)
     // select.innerHTML = selection;
   })
 
@@ -427,6 +430,15 @@ var select = document.getElementById('selected')
     var ts = (t/=d)*t;
     var tc = ts*t;
     return b+c*(tc + -3*ts + 3*t);
+  }
+
+  var toggleBorder = function (e) {
+    console.log(e)
+    if (e.style.borderColor === 'black') {
+      e.style.borderColor = 'white'
+    } else {
+      e.style.borderColor = 'black'
+    }
   }
 
   draw();

@@ -1,5 +1,12 @@
-### Roulette App
+# Roulette Js
+####[Live App](https://roulettejs.herokuapp.com)
 
-- This app is written in Express on Node.js and uses a Mongo DB
 
-[Roulette Js](https://roulettejs.herokuapp.com)
+###Written using the following:
+*  Node.Js
+*  Express
+*  MongoDB
+*  Vanilla Javascript
+
+
+This is a personal project written over the course of week 6 at Galvanize.
